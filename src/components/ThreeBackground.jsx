@@ -100,7 +100,7 @@ function DeepGalaxy({ count = 3800 }) {
         map={starTexture}
         vertexColors
         transparent
-        opacity={0.9}
+        opacity={0.8}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
       />
@@ -108,16 +108,14 @@ function DeepGalaxy({ count = 3800 }) {
   )
 }
 
-// 2. Real High-Definition Sudarshana Chakra with Physics Rotation
+// 2. Real High-Definition Sudarshana Chakra with Physics Rotation & Depth
 function RealSudarshanaChakra({ position = [0, 0, -16], scale = 1.9 }) {
   const chakraMeshRef = useRef()
   const chakraTexture = useLoader(THREE.TextureLoader, './assets/sudarshana_chakra.jpg')
 
   useFrame((state, delta) => {
     if (chakraMeshRef.current) {
-      // Authentic high-speed razor disc clockwise spinning physics
       chakraMeshRef.current.rotation.z -= delta * 0.45
-      // Gentle spatial breathing and 3D celestial tilt
       chakraMeshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.4) * 0.12 + 0.06
       chakraMeshRef.current.rotation.y = Math.cos(state.clock.elapsedTime * 0.3) * 0.14
     }
@@ -125,18 +123,18 @@ function RealSudarshanaChakra({ position = [0, 0, -16], scale = 1.9 }) {
 
   return (
     <group position={position} scale={scale}>
-      {/* Radiant Divine Lights illuminating the cosmos */}
-      <pointLight color="#ffd166" intensity={9} distance={28} position={[0, 0, 2]} />
-      <pointLight color="#00f0ff" intensity={7} distance={28} position={[0, 0, 2]} />
+      {/* Soft Ambient Point Lights */}
+      <pointLight color="#ffd166" intensity={6} distance={26} position={[0, 0, 2]} />
+      <pointLight color="#00f0ff" intensity={4} distance={26} position={[0, 0, 2]} />
 
-      {/* The Authentic High-Definition Sudarshana Chakra Plane */}
+      {/* The Authentic Sudarshana Chakra Plane */}
       <mesh ref={chakraMeshRef}>
         <planeGeometry args={[10.5, 10.5]} />
         <meshBasicMaterial
           map={chakraTexture}
           transparent
           blending={THREE.AdditiveBlending}
-          opacity={0.98}
+          opacity={0.92}
           side={THREE.DoubleSide}
         />
       </mesh>
@@ -155,18 +153,18 @@ function FloatingDraftCanvas({ position, rotation, accentColor = '#ffd166' }) {
     ctx.fillStyle = '#040714'
     ctx.fillRect(0, 0, 512, 720)
 
-    ctx.strokeStyle = accentColor + '80'
-    ctx.lineWidth = 4
+    ctx.strokeStyle = accentColor + '60'
+    ctx.lineWidth = 3
     ctx.strokeRect(20, 20, 472, 680)
 
     ctx.strokeStyle = '#152454'
-    ctx.lineWidth = 3
+    ctx.lineWidth = 2
     ctx.strokeRect(36, 36, 440, 260)
     ctx.strokeRect(36, 316, 210, 360)
     ctx.strokeRect(266, 316, 210, 360)
 
     ctx.strokeStyle = accentColor
-    ctx.lineWidth = 2
+    ctx.lineWidth = 1.5
     ctx.beginPath()
     ctx.moveTo(10, 20); ctx.lineTo(30, 20)
     ctx.moveTo(20, 10); ctx.lineTo(20, 30)
@@ -176,7 +174,7 @@ function FloatingDraftCanvas({ position, rotation, accentColor = '#ffd166' }) {
     ctx.moveTo(492, 10); ctx.lineTo(492, 30)
     ctx.stroke()
 
-    ctx.fillStyle = accentColor + '15'
+    ctx.fillStyle = accentColor + '10'
     ctx.beginPath()
     ctx.arc(256, 166, 60, 0, Math.PI * 2)
     ctx.fill()
@@ -187,17 +185,17 @@ function FloatingDraftCanvas({ position, rotation, accentColor = '#ffd166' }) {
   }, [accentColor])
 
   return (
-    <Float speed={1.8} rotationIntensity={0.25} floatIntensity={0.5}>
+    <Float speed={1.6} rotationIntensity={0.2} floatIntensity={0.4}>
       <group position={position} rotation={rotation}>
         <mesh castShadow receiveShadow>
           <boxGeometry args={[3.2, 4.5, 0.1]} />
-          <meshStandardMaterial color="#070d24" roughness={0.4} metalness={0.2} />
+          <meshStandardMaterial color="#070d24" roughness={0.5} metalness={0.2} />
         </mesh>
         <mesh position={[0, 0, 0.06]}>
           <planeGeometry args={[3.0, 4.3]} />
           <meshBasicMaterial map={canvasTexture} />
         </mesh>
-        <pointLight color={accentColor} distance={4} intensity={1.5} position={[0, 0, 0.6]} />
+        <pointLight color={accentColor} distance={3} intensity={1} position={[0, 0, 0.6]} />
       </group>
     </Float>
   )
@@ -250,12 +248,12 @@ export default function ThreeBackground({ scrollProgress }) {
           gl={{ antialias: true, alpha: true }}
         >
           <color attach="background" args={['#02040a']} />
-          <ambientLight intensity={0.6} />
+          <ambientLight intensity={0.5} />
 
           {/* 1. Deep Galaxy Starfield with Natural Soft Circular Stars */}
           <DeepGalaxy count={3800} />
 
-          {/* 2. Floating 3D Storyboard Manuscript Draft Canvases along Flight Path */}
+          {/* 2. Floating 3D Storyboard Manuscript Draft Canvases */}
           <FloatingDraftCanvas
             position={[-2.8, 0.6, 2]}
             rotation={[0, 0.4, 0.03]}
@@ -272,7 +270,7 @@ export default function ThreeBackground({ scrollProgress }) {
             accentColor="#f4a261"
           />
 
-          {/* 3. Real High-Definition Spinning Sudarshana Chakra Asset */}
+          {/* 3. Real High-Definition Spinning Sudarshana Chakra */}
           <RealSudarshanaChakra position={[0, 0, -16]} scale={1.9} />
 
           {/* 4. 3D Camera Spline Flight Controller */}
@@ -280,9 +278,9 @@ export default function ThreeBackground({ scrollProgress }) {
         </Canvas>
       </React.Suspense>
 
-      {/* Vignette Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-cosmic-950 via-transparent to-cosmic-950/70 pointer-events-none" />
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-cosmic-950/30 to-cosmic-950 pointer-events-none" />
+      {/* Deep Space Vignette and Atmospheric Cosmic Fade */}
+      <div className="absolute inset-0 bg-gradient-to-t from-cosmic-950 via-transparent to-cosmic-950/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-cosmic-950/40 to-cosmic-950 pointer-events-none" />
     </div>
   )
 }
