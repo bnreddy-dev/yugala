@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #070709;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom Japanese Calligraphy & Glow effects */
+.font-kanji {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(230, 57, 70, 0.5);
+}
+
+.text-gold-glow {
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.border-hanko {
+  border: 2px solid #e63946;
+  box-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232330;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e63946;
+}
