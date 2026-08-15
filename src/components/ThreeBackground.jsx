@@ -12,8 +12,8 @@ function createStarTexture() {
 
   const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32)
   gradient.addColorStop(0, 'rgba(255, 255, 255, 1)')
-  gradient.addColorStop(0.25, 'rgba(255, 225, 150, 0.85)')
-  gradient.addColorStop(0.55, 'rgba(0, 240, 255, 0.35)')
+  gradient.addColorStop(0.25, 'rgba(255, 225, 150, 0.75)')
+  gradient.addColorStop(0.55, 'rgba(0, 240, 255, 0.25)')
   gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
 
   ctx.fillStyle = gradient
@@ -24,7 +24,7 @@ function createStarTexture() {
   return texture
 }
 
-// 1. Organic Glowing Deep Galaxy with Soft Circular Stars
+// 1. Organic Glowing Deep Galaxy with Soft Circular Stars & Deeper Contrast
 function DeepGalaxy({ count = 3800 }) {
   const pointsRef = useRef()
   const starTexture = useMemo(() => createStarTexture(), [])
@@ -96,11 +96,11 @@ function DeepGalaxy({ count = 3800 }) {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.28}
+        size={0.24}
         map={starTexture}
         vertexColors
         transparent
-        opacity={0.8}
+        opacity={0.65}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
       />
@@ -108,7 +108,7 @@ function DeepGalaxy({ count = 3800 }) {
   )
 }
 
-// 2. Real High-Definition Sudarshana Chakra with Physics Rotation & Depth
+// 2. Real High-Definition Sudarshana Chakra with Physics Rotation & Soft Atmospheric Depth
 function RealSudarshanaChakra({ position = [0, 0, -16], scale = 1.9 }) {
   const chakraMeshRef = useRef()
   const chakraTexture = useLoader(THREE.TextureLoader, './assets/sudarshana_chakra.jpg')
@@ -123,18 +123,18 @@ function RealSudarshanaChakra({ position = [0, 0, -16], scale = 1.9 }) {
 
   return (
     <group position={position} scale={scale}>
-      {/* Soft Ambient Point Lights */}
-      <pointLight color="#ffd166" intensity={6} distance={26} position={[0, 0, 2]} />
-      <pointLight color="#00f0ff" intensity={4} distance={26} position={[0, 0, 2]} />
+      {/* Subdued Ambient Point Lights for Rich Contrast */}
+      <pointLight color="#ffd166" intensity={3.5} distance={24} position={[0, 0, 2]} />
+      <pointLight color="#00f0ff" intensity={2.5} distance={24} position={[0, 0, 2]} />
 
-      {/* The Authentic Sudarshana Chakra Plane */}
+      {/* The Authentic Sudarshana Chakra Plane with Gentle Fade */}
       <mesh ref={chakraMeshRef}>
         <planeGeometry args={[10.5, 10.5]} />
         <meshBasicMaterial
           map={chakraTexture}
           transparent
           blending={THREE.AdditiveBlending}
-          opacity={0.92}
+          opacity={0.78}
           side={THREE.DoubleSide}
         />
       </mesh>
@@ -153,18 +153,18 @@ function FloatingDraftCanvas({ position, rotation, accentColor = '#ffd166' }) {
     ctx.fillStyle = '#040714'
     ctx.fillRect(0, 0, 512, 720)
 
-    ctx.strokeStyle = accentColor + '60'
-    ctx.lineWidth = 3
+    ctx.strokeStyle = accentColor + '40'
+    ctx.lineWidth = 2.5
     ctx.strokeRect(20, 20, 472, 680)
 
-    ctx.strokeStyle = '#152454'
-    ctx.lineWidth = 2
+    ctx.strokeStyle = '#101b3e'
+    ctx.lineWidth = 1.8
     ctx.strokeRect(36, 36, 440, 260)
     ctx.strokeRect(36, 316, 210, 360)
     ctx.strokeRect(266, 316, 210, 360)
 
     ctx.strokeStyle = accentColor
-    ctx.lineWidth = 1.5
+    ctx.lineWidth = 1.2
     ctx.beginPath()
     ctx.moveTo(10, 20); ctx.lineTo(30, 20)
     ctx.moveTo(20, 10); ctx.lineTo(20, 30)
@@ -174,7 +174,7 @@ function FloatingDraftCanvas({ position, rotation, accentColor = '#ffd166' }) {
     ctx.moveTo(492, 10); ctx.lineTo(492, 30)
     ctx.stroke()
 
-    ctx.fillStyle = accentColor + '10'
+    ctx.fillStyle = accentColor + '08'
     ctx.beginPath()
     ctx.arc(256, 166, 60, 0, Math.PI * 2)
     ctx.fill()
@@ -189,13 +189,13 @@ function FloatingDraftCanvas({ position, rotation, accentColor = '#ffd166' }) {
       <group position={position} rotation={rotation}>
         <mesh castShadow receiveShadow>
           <boxGeometry args={[3.2, 4.5, 0.1]} />
-          <meshStandardMaterial color="#070d24" roughness={0.5} metalness={0.2} />
+          <meshStandardMaterial color="#05091a" roughness={0.6} metalness={0.2} />
         </mesh>
         <mesh position={[0, 0, 0.06]}>
           <planeGeometry args={[3.0, 4.3]} />
           <meshBasicMaterial map={canvasTexture} />
         </mesh>
-        <pointLight color={accentColor} distance={3} intensity={1} position={[0, 0, 0.6]} />
+        <pointLight color={accentColor} distance={3} intensity={0.6} position={[0, 0, 0.6]} />
       </group>
     </Float>
   )
@@ -248,7 +248,7 @@ export default function ThreeBackground({ scrollProgress }) {
           gl={{ antialias: true, alpha: true }}
         >
           <color attach="background" args={['#02040a']} />
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={0.35} />
 
           {/* 1. Deep Galaxy Starfield with Natural Soft Circular Stars */}
           <DeepGalaxy count={3800} />
@@ -270,7 +270,7 @@ export default function ThreeBackground({ scrollProgress }) {
             accentColor="#f4a261"
           />
 
-          {/* 3. Real High-Definition Spinning Sudarshana Chakra */}
+          {/* 3. Real High-Definition Spinning Sudarshana Chakra with Soft Ambient Blending */}
           <RealSudarshanaChakra position={[0, 0, -16]} scale={1.9} />
 
           {/* 4. 3D Camera Spline Flight Controller */}
@@ -278,9 +278,10 @@ export default function ThreeBackground({ scrollProgress }) {
         </Canvas>
       </React.Suspense>
 
-      {/* Deep Space Vignette and Atmospheric Cosmic Fade */}
-      <div className="absolute inset-0 bg-gradient-to-t from-cosmic-950 via-transparent to-cosmic-950/80 pointer-events-none" />
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-cosmic-950/40 to-cosmic-950 pointer-events-none" />
+      {/* Enhanced Multi-Layer Cosmic Vignette & Deep Space Fade */}
+      <div className="absolute inset-0 bg-gradient-to-t from-cosmic-950 via-cosmic-950/40 to-cosmic-950/85 pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-cosmic-950/60 to-cosmic-950 pointer-events-none" />
+      <div className="absolute inset-0 bg-cosmic-950/25 pointer-events-none" />
     </div>
   )
 }
