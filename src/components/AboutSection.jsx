@@ -25,7 +25,7 @@ export default function AboutSection() {
         <div className="pt-6 border-t border-cosmic-700/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-washi-300/70">
           <span className="font-mono text-washi-300/60">Open Source & Free on GitHub Pages</span>
           <a
-            href="https://github.com"
+            href="https://github.com/bnreddy-dev/yugala"
             target="_blank"
             rel="noreferrer"
             className="text-radha-gold hover:text-radha-champagne font-semibold transition-colors flex items-center gap-1.5 group"

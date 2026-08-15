@@ -27,16 +27,16 @@ export default function Footer() {
           <span>and devotion to transcendent storytelling</span>
         </div>
 
-        {/* GitHub link */}
+        {/* GitHub link to direct repository */}
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/bnreddy-dev/yugala"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 text-washi-200 hover:text-radha-gold transition-colors group"
           >
             <AnimatedGithub className="w-4 h-4 text-mayur-cyan" />
-            <span>GitHub Pages</span>
+            <span>GitHub Repository</span>
           </a>
         </div>
       </div>
