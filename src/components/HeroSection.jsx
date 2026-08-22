@@ -1,53 +1,61 @@
 import React from 'react'
-import { AnimatedGithub, AnimatedArrowDown, AnimatedSparkles } from './icons/AnimatedIcons'
+import { AnimatedArrowDown, AnimatedSparkles } from './icons/AnimatedIcons'
 
 export default function HeroSection({ onExplore }) {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 pb-16">
-      {/* Subtle Background Watermark */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none opacity-5 text-[18vw] font-cinzel font-black text-washi-100 whitespace-nowrap leading-none -z-10">
-        YUGALA
+    <section id="hero" className="relative min-h-screen flex flex-col justify-end text-left px-6 sm:px-12 md:px-24 pb-32">
+      {/* Cinematic Background Image */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40"
+        style={{ backgroundImage: 'url(./reader/pages/02.jpg)', backgroundPosition: 'center top' }}
+      >
+        {/* Vignette Gradients for OTT Look */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-900 via-charcoal-900/80 to-transparent w-3/4"></div>
       </div>
 
-      <div className="max-w-4xl mx-auto flex flex-col items-center z-10">
+      <div className="relative z-10 max-w-3xl">
         {/* Origin Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cosmic-800/80 border border-radha-gold/40 backdrop-blur-md mb-8 shadow-xl shadow-radha-gold/10 group cursor-default">
-          <AnimatedSparkles className="w-3.5 h-3.5 text-mayur-cyan" />
-          <span className="text-xs font-semibold uppercase tracking-widest text-washi-200 font-mono">
-            Original Comic Studio • In Genesis
-          </span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-red-600/90 text-white mb-6 uppercase tracking-[0.2em] text-[10px] font-bold shadow-lg">
+          <AnimatedSparkles className="w-3 h-3" />
+          <span>Yugala Original Series</span>
         </div>
 
-        {/* Clean, Elegant, Premium Title (Image 1 Style) */}
-        <h1 className="font-cinzel text-6xl sm:text-7xl md:text-8xl font-bold tracking-wider text-washi-100 leading-none mb-8">
-          YUGALA
+        {/* Title */}
+        <h1 className="font-cinzel text-5xl sm:text-7xl md:text-8xl font-black tracking-wider text-white leading-none mb-4 drop-shadow-2xl">
+          SHATTERED <br/><span className="text-radha-gold">MANDALA</span>
         </h1>
+        <h2 className="text-xl sm:text-2xl font-mono tracking-widest text-washi-300 mb-6 uppercase">Book 01</h2>
 
-        {/* Subtitle */}
-        <p className="max-w-2xl text-sm sm:text-base md:text-lg text-washi-300/80 font-light leading-relaxed mb-10">
-          Where ancient cosmic lore and mythic timelines come to life through dynamic ink craftsmanship, bold paneling, and cinematic storytelling.
+        {/* Synopsis */}
+        <p className="text-base sm:text-lg text-washi-200 font-light leading-relaxed mb-10 max-w-2xl drop-shadow-md">
+          A scarred ascetic awakens to a world stripped of logic. Armed with a humming cybernetic blade and relentless fury, Aryan descends into the shattered citadel to confront the armored tyrant who broke the timeline.
         </p>
 
-        {/* Minimalist Premium Button (Image 1 Style) */}
-        <div className="flex items-center gap-4">
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center gap-4">
           <a
-            href="https://github.com/bnreddy-dev/yugala"
-            target="_blank"
-            rel="noreferrer"
-            className="px-6 py-2.5 rounded-lg border border-washi-300/30 hover:border-radha-gold/60 bg-cosmic-900/60 hover:bg-cosmic-800/80 text-washi-200 hover:text-white font-mono text-xs uppercase tracking-widest shadow-lg transition-all duration-300 flex items-center gap-2 group"
+            href="./reader/index.html"
+            className="px-8 py-3 rounded bg-white hover:bg-gray-200 text-black font-bold uppercase tracking-widest shadow-xl transition-all duration-300 flex items-center gap-3 group"
           >
-            <AnimatedGithub className="w-4 h-4 text-radha-gold" />
-            <span>Follow on GitHub</span>
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span>Read Now</span>
           </a>
+          <button 
+            onClick={onExplore}
+            className="px-8 py-3 rounded bg-gray-500/40 hover:bg-gray-500/60 border border-white/20 text-white font-bold uppercase tracking-widest backdrop-blur-sm transition-all duration-300 flex items-center gap-2"
+          >
+            <span>More Info</span>
+          </button>
         </div>
       </div>
 
       {/* Scroll Down Indicator */}
       <div 
         onClick={onExplore}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-washi-300/40 hover:text-radha-gold cursor-pointer transition-colors group"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-washi-300/40 hover:text-white cursor-pointer transition-colors group z-20"
       >
-        <span className="text-[10px] uppercase tracking-widest font-mono group-hover:tracking-wider transition-all">Scroll to Explore</span>
+        <span className="text-[10px] uppercase tracking-widest font-mono group-hover:tracking-wider transition-all">Explore Library</span>
         <AnimatedArrowDown className="w-4 h-4 text-radha-gold" />
       </div>
     </section>
