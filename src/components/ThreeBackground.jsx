@@ -168,7 +168,7 @@ export default function ThreeBackground({ scrollProgress }) {
   // Tile 1: Latest (Book 01)
   // Tile 2: Previous (Placeholder 2)
   // Tile 3: Older (Placeholder 3)
-  const TILE_1_LATEST = "./reader/pages/02.jpg" // Using splash page or 00_cover.jpg
+  const TILE_1_LATEST = "./reader/pages/00_cover.jpg" // Using the official epic cover
   const TILE_2_PREVIOUS = "./assets/cover_placeholder_2.jpg"
   const TILE_3_OLDER = "./assets/cover_placeholder_3.jpg"
 
