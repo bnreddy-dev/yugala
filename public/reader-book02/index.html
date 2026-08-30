@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrath of the Kala Chakra - Book 02</title>
+    <style>
+        body { margin: 0; padding: 0; background: #0a0a0a; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; font-family: 'Helvetica Neue', sans-serif; user-select: none; overscroll-behavior: none; touch-action: none; }
+        #reader-container { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .page-wrapper { position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-start; padding-top: 70px; padding-bottom: 60px; box-sizing: border-box; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease; opacity: 0; pointer-events: none; transform: translateX(30%); }
+        .page-wrapper.active { opacity: 1; transform: translateX(0); z-index: 10; pointer-events: auto; }
+        .page-wrapper.previous { opacity: 0; transform: translateX(-30%); z-index: 5; }
+        .comic-page { max-width: 100%; max-height: 100%; object-fit: contain; box-shadow: 0 0 30px rgba(0,0,0,1); }
+        #hit-left, #hit-right { position: absolute; top: 0; height: 100%; z-index: 100; }
+        #hit-left { left: 0; width: 35%; cursor: w-resize; }
+        #hit-right { right: 0; width: 65%; cursor: e-resize; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(20,20,20,0.7); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; z-index: 110; display: flex; justify-content: center; align-items: center; backdrop-filter: blur(5px); transition: all 0.2s; }
+        .nav-btn:hover { background: white; color: black; transform: translateY(-50%) scale(1.1); }
+        #btn-prev { left: 30px; }
+        #btn-next { right: 30px; }
+        @media (max-width: 768px) { .nav-btn { display: none; } }
+        #progress { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); padding: 8px 20px; border-radius: 20px; font-size: 14px; letter-spacing: 2px; z-index: 110; pointer-events: none; border: 1px solid #333; }
+        .site-link { position: absolute; top: 20px; right: 30px; color: #aaa; text-decoration: none; font-size: 12px; letter-spacing: 2px; z-index: 200; border: 1px solid #555; padding: 8px 15px; border-radius: 4px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); transition: all 0.3s; text-transform: uppercase; }
+        .site-link:hover { color: #000; background: #fff; border-color: #fff; }
+    </style>
+</head>
+<body>
+    <a href="https://bnreddy-dev.github.io/yugala/" class="site-link">Yugala Studio</a>
+    <div id="reader-container">
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/00_cover.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/01.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/02.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/03.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/04.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/05.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/06.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/07.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/08.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/09.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/10.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/11.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/12.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/13.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/14.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/15.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/16.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/17.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/18.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/19.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/20.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/21.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/22.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/23.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/24.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/25.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/26.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/27.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/28.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/29.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/30.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/31.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/32.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/33.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/34.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/35.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/36.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/37.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/38.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/39.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/40.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/41.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/42.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/43.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/44.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/45.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/46.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/47.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/48.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/49.jpg" loading="lazy" alt="Comic Page">
+        </div>
+        <div class="page-wrapper">
+            <img class="comic-page" src="pages/50.jpg" loading="lazy" alt="Comic Page">
+        </div>
+    </div>
+    <div id="hit-left" onclick="prevPage()"></div>
+    <div id="hit-right" onclick="nextPage()"></div>
+    <button id="btn-prev" class="nav-btn" onclick="prevPage()">&#10094;</button>
+    <button id="btn-next" class="nav-btn" onclick="nextPage()">&#10095;</button>
+    <div id="progress">PAGE <span id="curr">Cover</span> / 50</div>
+
+    <script>
+        let currentIdx = 0;
+        const pages = document.querySelectorAll('.page-wrapper');
+        const currEl = document.getElementById('curr');
+        
+        function updatePages() {
+            pages.forEach((page, idx) => {
+                page.classList.remove('active', 'previous');
+                if (idx === currentIdx) { page.classList.add('active'); } 
+                else if (idx < currentIdx) { page.classList.add('previous'); }
+            });
+            currEl.innerText = currentIdx === 0 ? "Cover" : currentIdx;
+            
+            document.getElementById('btn-prev').style.opacity = currentIdx === 0 ? '0' : '1';
+            document.getElementById('btn-next').style.opacity = currentIdx === pages.length - 1 ? '0' : '1';
+            document.getElementById('btn-prev').style.pointerEvents = currentIdx === 0 ? 'none' : 'auto';
+            document.getElementById('btn-next').style.pointerEvents = currentIdx === pages.length - 1 ? 'none' : 'auto';
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function nextPage() { if (currentIdx < pages.length - 1) { currentIdx++; updatePages(); } }
+        function prevPage() { if (currentIdx > 0) { currentIdx--; updatePages(); } }
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { nextPage(); }
+            if (e.key === 'ArrowLeft') { prevPage(); }
+        });
+        
+        let touchStartX = 0, touchEndX = 0, touchStartY = 0, touchEndY = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            const diffX = touchStartX - touchEndX;
+            const diffY = touchStartY - touchEndY;
+            if (Math.abs(diffX) > 60 && Math.abs(diffX) > Math.abs(diffY)) {
+                if (diffX > 0) { nextPage(); } else { prevPage(); }
+            }
+        }, { passive: true });
+
+        updatePages();
+    </script>
+</body>
+</html>

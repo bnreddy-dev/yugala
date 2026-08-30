@@ -6,53 +6,73 @@ export default function AboutSection() {
     <section id="about" className="relative min-h-[70vh] flex flex-col justify-start px-6 sm:px-12 md:px-24 py-16 z-10 max-w-7xl mx-auto w-full">
       
       {/* OTT Style Section Header */}
-      <h3 className="font-cinzel text-2xl sm:text-3xl font-bold text-washi-100 mb-8 border-b border-washi-100/10 pb-4 inline-block">
-        More Information
-      </h3>
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 border-b border-washi-100/10 pb-4 gap-4">
+        <div>
+          <span className="text-radha-gold font-mono text-xs uppercase tracking-widest block mb-1">Official Catalog</span>
+          <h3 className="font-cinzel text-2xl sm:text-4xl font-bold text-washi-100">
+            Yugala Graphic Sagas
+          </h3>
+        </div>
+        <span className="text-washi-400 font-mono text-xs uppercase tracking-wider">Classic Manga Ink ? 100% Free</span>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {/* Comic Book Library Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         
-        {/* Series Info Details */}
-        <div className="col-span-1 md:col-span-2 space-y-8">
-          <p className="text-washi-300 text-base sm:text-lg font-light leading-relaxed">
-            We are dedicated to crafting original graphic sagas rooted in deep cosmic mythologies. Utilizing dynamic Classic Manga Ink, expressive linework, and kinetic 3D comic paneling to create transcendent visual literature.
-          </p>
-
-          <div className="flex flex-wrap gap-6 text-sm text-washi-300">
+        {/* Book 02 Card (Latest) */}
+        <a href="./reader-book02/index.html" className="group relative rounded-xl overflow-hidden border border-radha-gold/40 shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:border-radha-gold hover:shadow-radha-gold/20 flex flex-col sm:flex-row bg-charcoal-900/60 backdrop-blur-md">
+          <div className="sm:w-1/2 aspect-[2/3] bg-cover bg-center" style={{ backgroundImage: 'url(./reader-book02/pages/00_cover.jpg)' }}></div>
+          <div className="sm:w-1/2 p-6 flex flex-col justify-between">
             <div>
-              <span className="block text-washi-400 font-mono text-xs uppercase tracking-widest mb-1">Creator</span>
-              <span className="font-semibold text-white">Yugala Studio</span>
+              <div className="inline-block px-2.5 py-0.5 rounded bg-red-600/90 text-white font-mono text-[10px] uppercase tracking-wider font-bold mb-3">Latest Release</div>
+              <h4 className="text-white font-cinzel font-bold text-2xl mb-1 group-hover:text-radha-gold transition-colors">Wrath of the Kala Chakra</h4>
+              <p className="text-radha-gold font-mono text-xs uppercase tracking-widest mb-3">Book 02 ? 50 Pages</p>
+              <p className="text-washi-300 text-xs leading-relaxed font-light mb-4">Aryan ascends to the celestial orbit to confront Emperor Vishwamitra before the timeline reset.</p>
             </div>
-            <div>
-              <span className="block text-washi-400 font-mono text-xs uppercase tracking-widest mb-1">Genre</span>
-              <span className="font-semibold text-white">Action, Dark Fantasy, Sci-Fi</span>
-            </div>
-            <div>
-              <span className="block text-washi-400 font-mono text-xs uppercase tracking-widest mb-1">Maturity Rating</span>
-              <span className="inline-block border border-white/40 px-2 py-0.5 text-xs font-bold text-white rounded">16+</span>
+            <div className="flex items-center gap-2 text-black font-bold text-sm bg-white px-4 py-2.5 rounded justify-center group-hover:bg-radha-gold transition-colors">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <span>Read Book 02</span>
             </div>
           </div>
-        </div>
+        </a>
 
-        {/* Thumbnail / Continue Reading Card */}
-        <div className="col-span-1">
-          <a href="./reader/index.html" className="group block relative rounded-lg overflow-hidden border border-cosmic-700/60 shadow-2xl transition-transform duration-300 hover:scale-105 hover:border-radha-gold/50 cursor-pointer">
-            <div className="aspect-[2/3] w-full bg-cover bg-center" style={{ backgroundImage: 'url(./reader/pages/02.jpg)' }}></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-              <h4 className="text-white font-cinzel font-bold text-xl mb-1">Book 01</h4>
-              <p className="text-radha-gold font-mono text-xs uppercase tracking-widest mb-3">50 Pages</p>
-              <div className="flex items-center gap-2 text-white font-bold text-sm bg-white/20 backdrop-blur-md px-4 py-2 rounded justify-center group-hover:bg-radha-gold group-hover:text-black transition-colors">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <span>Read Chapter</span>
-              </div>
+        {/* Book 01 Card */}
+        <a href="./reader/index.html" className="group relative rounded-xl overflow-hidden border border-cosmic-700/60 shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:border-white/40 flex flex-col sm:flex-row bg-charcoal-900/60 backdrop-blur-md">
+          <div className="sm:w-1/2 aspect-[2/3] bg-cover bg-center" style={{ backgroundImage: 'url(./reader/pages/00_cover.jpg)' }}></div>
+          <div className="sm:w-1/2 p-6 flex flex-col justify-between">
+            <div>
+              <div className="inline-block px-2.5 py-0.5 rounded bg-cosmic-800 text-washi-300 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">Season 01</div>
+              <h4 className="text-white font-cinzel font-bold text-2xl mb-1 group-hover:text-radha-champagne transition-colors">Shattered Mandala</h4>
+              <p className="text-radha-gold font-mono text-xs uppercase tracking-widest mb-3">Book 01 ? 50 Pages</p>
+              <p className="text-washi-300 text-xs leading-relaxed font-light mb-4">The origins at the Brahma Wound crater. A scarred ascetic awakens and battles the hunting skiffs.</p>
             </div>
-          </a>
-        </div>
+            <div className="flex items-center gap-2 text-white font-bold text-sm bg-white/20 backdrop-blur-md px-4 py-2.5 rounded justify-center group-hover:bg-white group-hover:text-black transition-colors">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <span>Read Book 01</span>
+            </div>
+          </div>
+        </a>
 
       </div>
 
+      {/* Series Details */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-t border-washi-100/10 text-sm text-washi-300">
+        <div>
+          <span className="block text-washi-400 font-mono text-xs uppercase tracking-widest mb-1">Creator</span>
+          <span className="font-semibold text-white">Yugala Studio</span>
+        </div>
+        <div>
+          <span className="block text-washi-400 font-mono text-xs uppercase tracking-widest mb-1">Genre</span>
+          <span className="font-semibold text-white">Action, Dark Fantasy, Mythological Sci-Fi</span>
+        </div>
+        <div>
+          <span className="block text-washi-400 font-mono text-xs uppercase tracking-widest mb-1">Visual Medium</span>
+          <span className="font-semibold text-white">Classic Manga Ink (G-Pen & Kakeami)</span>
+        </div>
+      </div>
+
       {/* GitHub Footer */}
-      <div className="mt-24 pt-6 border-t border-cosmic-700/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-washi-300/70 w-full">
+      <div className="pt-6 border-t border-cosmic-700/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-washi-300/70 w-full">
         <span className="font-mono text-washi-300/60">Open Source & Free on GitHub Pages</span>
         <a
           href="https://github.com/bnreddy-dev/yugala"
