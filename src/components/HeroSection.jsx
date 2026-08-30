@@ -8,14 +8,14 @@ export default function HeroSection({ onExplore }) {
         {/* Origin Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-red-600/90 text-white mb-6 uppercase tracking-[0.2em] text-[10px] font-bold shadow-lg shadow-red-900/50">
           <AnimatedSparkles className="w-3 h-3" />
-          <span>Latest Release ? Book 02</span>
+          <span>Latest Release &bull; Book 02</span>
         </div>
 
         {/* Title */}
         <h1 className="font-cinzel text-5xl sm:text-7xl md:text-8xl font-black tracking-wider text-white leading-none mb-4 drop-shadow-2xl">
           WRATH OF THE <br/><span className="text-radha-gold">KALA CHAKRA</span>
         </h1>
-        <h2 className="text-xl sm:text-2xl font-mono tracking-widest text-washi-300 mb-6 uppercase drop-shadow-md">Book 02 ? 50 Pages</h2>
+        <h2 className="text-xl sm:text-2xl font-mono tracking-widest text-washi-300 mb-6 uppercase drop-shadow-md">Book 02 &bull; 50 Pages</h2>
 
         {/* Synopsis */}
         <p className="text-base sm:text-lg text-washi-200 font-light leading-relaxed mb-10 max-w-2xl drop-shadow-lg">
@@ -41,7 +41,7 @@ export default function HeroSection({ onExplore }) {
             onClick={onExplore}
             className="px-6 py-3 rounded bg-transparent hover:bg-white/10 text-washi-300 hover:text-white font-mono text-xs uppercase tracking-widest transition-all duration-300"
           >
-            <span>View Library ?</span>
+            <span>View Library &darr;</span>
           </button>
         </div>
       </div>

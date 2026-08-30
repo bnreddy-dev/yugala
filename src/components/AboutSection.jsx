@@ -13,7 +13,7 @@ export default function AboutSection() {
             Yugala Graphic Sagas
           </h3>
         </div>
-        <span className="text-washi-400 font-mono text-xs uppercase tracking-wider">Classic Manga Ink ? 100% Free</span>
+        <span className="text-washi-400 font-mono text-xs uppercase tracking-wider">Classic Manga Ink &bull; 100% Free</span>
       </div>
 
       {/* Comic Book Library Grid */}
@@ -26,7 +26,7 @@ export default function AboutSection() {
             <div>
               <div className="inline-block px-2.5 py-0.5 rounded bg-red-600/90 text-white font-mono text-[10px] uppercase tracking-wider font-bold mb-3">Latest Release</div>
               <h4 className="text-white font-cinzel font-bold text-2xl mb-1 group-hover:text-radha-gold transition-colors">Wrath of the Kala Chakra</h4>
-              <p className="text-radha-gold font-mono text-xs uppercase tracking-widest mb-3">Book 02 ? 50 Pages</p>
+              <p className="text-radha-gold font-mono text-xs uppercase tracking-widest mb-3">Book 02 &bull; 50 Pages</p>
               <p className="text-washi-300 text-xs leading-relaxed font-light mb-4">Aryan ascends to the celestial orbit to confront Emperor Vishwamitra before the timeline reset.</p>
             </div>
             <div className="flex items-center gap-2 text-black font-bold text-sm bg-white px-4 py-2.5 rounded justify-center group-hover:bg-radha-gold transition-colors">
@@ -43,7 +43,7 @@ export default function AboutSection() {
             <div>
               <div className="inline-block px-2.5 py-0.5 rounded bg-cosmic-800 text-washi-300 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">Season 01</div>
               <h4 className="text-white font-cinzel font-bold text-2xl mb-1 group-hover:text-radha-champagne transition-colors">Shattered Mandala</h4>
-              <p className="text-radha-gold font-mono text-xs uppercase tracking-widest mb-3">Book 01 ? 50 Pages</p>
+              <p className="text-radha-gold font-mono text-xs uppercase tracking-widest mb-3">Book 01 &bull; 50 Pages</p>
               <p className="text-washi-300 text-xs leading-relaxed font-light mb-4">The origins at the Brahma Wound crater. A scarred ascetic awakens and battles the hunting skiffs.</p>
             </div>
             <div className="flex items-center gap-2 text-white font-bold text-sm bg-white/20 backdrop-blur-md px-4 py-2.5 rounded justify-center group-hover:bg-white group-hover:text-black transition-colors">
