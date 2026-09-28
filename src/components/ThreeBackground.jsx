@@ -164,13 +164,13 @@ function CameraSplineRig({ scrollProgress }) {
 }
 
 export default function ThreeBackground({ scrollProgress }) {
-  // Config for automatic book uploads:
-  // Tile 1: Latest (Book 01)
-  // Tile 2: Previous (Placeholder 2)
-  // Tile 3: Older (Placeholder 3)
-  const TILE_1_LATEST = "./reader-book02/pages/00_cover.jpg" // Using the official epic cover
-  const TILE_2_PREVIOUS = "./reader/pages/00_cover.jpg"
-  const TILE_3_OLDER = "./assets/cover_placeholder_3.jpg"
+  // Trilogy 3D Floating Book Covers in order 3, 2, 1:
+  // Tile 1: Book 03: The Broken Kalpa (Latest Grand Finale - In Front, Z = 2)
+  // Tile 2: Book 02: Wrath of the Kala Chakra (Middle, Z = -5)
+  // Tile 3: Book 01: Shattered Mandala (Origins - Furthest Back, Z = -11)
+  const TILE_1_LATEST = "./reader-book03/pages/00_cover.jpg"
+  const TILE_2_PREVIOUS = "./reader-book02/pages/00_cover.jpg"
+  const TILE_3_OLDER = "./reader/pages/00_cover.jpg"
 
   return (
     <div className="fixed inset-0 w-full h-full pointer-events-none -z-10 bg-cosmic-950 overflow-hidden">
@@ -181,10 +181,13 @@ export default function ThreeBackground({ scrollProgress }) {
 
           <DeepGalaxy count={3800} />
 
-          {/* 2. Floating Book Covers */}
-          <FloatingBookCover position={[-2.8, 0.6, 2]} rotation={[0, 0.4, 0.03]} accentColor="#00f0ff" imageUrl={TILE_1_LATEST} />
-          <FloatingBookCover position={[3.2, -0.6, -5]} rotation={[0, -0.45, -0.04]} accentColor="#ffd166" imageUrl={TILE_2_PREVIOUS} />
-          <FloatingBookCover position={[-2.4, 0.8, -11]} rotation={[0.04, 0.35, 0.02]} accentColor="#f4a261" imageUrl={TILE_3_OLDER} />
+          {/* 3 Floating Book Covers in reverse chronological 3, 2, 1 order */}
+          {/* Tile 1: Book 03 (Front, Z=2) */}
+          <FloatingBookCover position={[-2.8, 0.6, 2]} rotation={[0, 0.4, 0.03]} accentColor="#ffd166" imageUrl={TILE_1_LATEST} />
+          {/* Tile 2: Book 02 (Middle, Z=-5) */}
+          <FloatingBookCover position={[3.2, -0.6, -5]} rotation={[0, -0.45, -0.04]} accentColor="#00f0ff" imageUrl={TILE_2_PREVIOUS} />
+          {/* Tile 3: Book 01 (Back, Z=-11) */}
+          <FloatingBookCover position={[-2.4, 0.8, -11]} rotation={[0.04, 0.35, 0.02]} accentColor="#e76f51" imageUrl={TILE_3_OLDER} />
 
           <RealSudarshanaChakra position={[0, 0, -16]} scale={1.9} />
           <CameraSplineRig scrollProgress={scrollProgress} />
